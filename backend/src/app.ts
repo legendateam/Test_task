@@ -16,5 +16,5 @@ app.listen(PORT, () => {
     // connect to db
     AppDataSource.initialize()
         .then(() => console.log('Data Source has been initialized!'))
-        .catch((e) => console.error('Error during Data Source initialization', e));
+        .catch((e: Error) => console.error('Error during Data Source initialization', e));
 });
