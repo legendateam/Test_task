@@ -14,4 +14,3 @@ WORKDIR /app
 
 COPY ./backend/package.json .
 RUN npm i
-
