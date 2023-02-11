@@ -20,6 +20,8 @@
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "class-methods-use-this": "off",
+        "no-empty-function": ["error", { "allow": ["constructors"] }],
+        "no-useless-constructor": 0,
         "import/extensions": [
             "error",
             {

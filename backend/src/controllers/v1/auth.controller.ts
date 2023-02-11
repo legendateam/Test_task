@@ -1,10 +1,18 @@
 import { Request, Response } from 'express';
 
+import {authRepository} from "../../repositories/v1";
+
 class AuthController {
-    public CreateUser(req: Request, res: Response): void {
-        const { body } = req;
-        body.greeting = 'hello from docker server';
-        res.json(body);
+    public async CreateUser(req: Request, res: Response): Promise<void> {
+       try {
+           const { body } = req;
+
+           const newVar = await authRepository.createUser(body);
+
+           res.json(newVar);
+       } catch (e) {
+           console.log(e);
+       }
     }
 }
 
