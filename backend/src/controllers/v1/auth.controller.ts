@@ -1,13 +1,15 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 
 import { authRepository } from '../../repositories/v1';
+import {IRequest} from "../../interfaces";
+import {IUserDto} from "../../interfaces/dto";
 
 class AuthController {
-    public async CreateUser(req: Request, res: Response): Promise<void> {
+    public async CreateUser(req: IRequest, res: Response): Promise<void> {
         try {
-            const { body } = req;
+            const { name, password, email } = req.user as IUserDto;
 
-            const newVar = await authRepository.createUser(body);
+            const newVar = await authRepository.createUser({ name, password, email });
 
             res.json(newVar);
         } catch (e) {
