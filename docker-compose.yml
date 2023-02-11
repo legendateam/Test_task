@@ -14,9 +14,7 @@ services:
     ports:
       - "4500:4500"
     command: >
-      /wait-for-it.sh db:5432 -- npm run start:dev &&
-      npm run migration:run
-
+      /wait-for-it.sh db:5432 -- npm run start:dev
   db:
     image: postgres:14.3-alpine
     restart: on-failure

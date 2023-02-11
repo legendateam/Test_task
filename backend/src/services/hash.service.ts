@@ -1,4 +1,6 @@
-import argon2 from "argon2";
+// @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
+import argon2 from 'argon2';
 
 class HashService {
     public async hash(password: string): Promise<string> {
