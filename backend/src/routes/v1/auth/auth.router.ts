@@ -1,11 +1,7 @@
 import { Router } from 'express';
 
+import {authController} from "../../../controllers/v1";
+
 export const authRouter = Router();
 
-authRouter.post('/sign-up', (req, res) => {
-    const { body } = req;
-
-    body.greeting = 'hello from server';
-
-    res.json(body);
-});
+authRouter.post('/sign-up', authController.CreateUser);

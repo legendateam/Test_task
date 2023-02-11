@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
+import {healthController} from "../../../controllers/v1";
+
 export const healthRouter = Router();
 
-healthRouter.get('/', (req, res) => {
-    res.json('hello form server');
-});
+healthRouter.get('/', healthController.getFreeMemory);
