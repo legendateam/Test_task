@@ -13,7 +13,7 @@ class AuthController {
 
             res.json(newVar);
         } catch (e) {
-            console.log(e);
+            res.status(500).json(e);
         }
     }
 }
