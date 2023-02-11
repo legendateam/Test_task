@@ -13,5 +13,5 @@ export class User extends CommonFields {
     email: string;
 
     @Column()
-    password: boolean;
+    password: string;
 }

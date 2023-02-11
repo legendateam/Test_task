@@ -1,7 +1,7 @@
 import express from 'express';
 
 import { configs } from './configs';
-import { AppDataSource } from './configs/data-source';
+import { AppDataSource } from './data-source';
 
 const app = express();
 
@@ -12,7 +12,6 @@ const { PORT } = configs;
 
 app.listen(PORT, () => {
     console.log(`Server is Running on PORT:${PORT}!`);
-
     // connect to db
     AppDataSource.initialize()
         .then(() => console.log('Data Source has been initialized!'))

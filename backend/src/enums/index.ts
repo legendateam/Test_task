@@ -1,1 +1,1 @@
-export * from './node-environment-variable.enum';
+export * from './node-env.enum';

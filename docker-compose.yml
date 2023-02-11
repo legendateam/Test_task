@@ -12,7 +12,8 @@ services:
       - ./backend:/app
       - /app/node_modules
     command: >
-      /wait-for-it.sh db:5432 -- npm run start:dev
+      /wait-for-it.sh db:5432 -- npm run start:dev &&
+      npm run migration:run
 
   db:
     image: postgres:14.3-alpine

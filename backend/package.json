@@ -12,10 +12,11 @@
         "format": "npm run prettier:write src",
         "format:all": "npm run prettier:write .",
         "format:conflict": "npx eslint-config-prettier src/**",
+        "typeorm": "typeorm-ts-node-commonjs",
         "migration:create": "typeorm migration:create",
-        "migration:generate": "npx typeorm-ts-node-commonjs migration:generate -d ./src/configs/data-source.ts",
-        "migration:run": "npx typeorm-ts-node-commonjs migration:run -- -d ./src/configs/data-source.ts",
-        "migration:revert": "typeorm migration:revert -- -d ./src/configs/data-source.ts"
+        "migration:generate": "npm run typeorm -- -d ./src/data-source.ts migration:generate",
+        "migration:run": "npm run typeorm migration:run -- -d ./src/data-source.ts",
+        "migration:revert": "npm run typeorm migration:revert -- -d ./src/data-source.ts"
     },
     "author": "",
     "license": "ISC",
