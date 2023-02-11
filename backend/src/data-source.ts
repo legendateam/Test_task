@@ -3,8 +3,7 @@ import { DataSource } from 'typeorm';
 
 import { configs } from './configs';
 import { CommonFields, User } from './dataBase/entities';
-import { createTableCommonFields1676129373728 } from './dataBase/migrations/1676129373728-create-table-commonFields';
-import { createTableUser1676129794335 } from './dataBase/migrations/1676129794335-create-table-user';
+import { createTableCommonFields1676129373728, createTableUser1676129794335 } from './dataBase/migrations';
 
 export const AppDataSource = new DataSource({
     type: 'postgres',
