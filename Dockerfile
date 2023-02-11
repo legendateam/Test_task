@@ -13,5 +13,5 @@ USER node
 WORKDIR /app
 
 COPY ./backend/package.json .
-RUN npm install
+RUN npm i
 
