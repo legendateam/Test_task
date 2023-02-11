@@ -7,7 +7,7 @@ class AuthController {
         try {
             const { body } = req;
 
-            const newVar = await authRepository.createUser(body.id, body);
+            const newVar = await authRepository.createUser(body);
 
             res.json(newVar);
         } catch (e) {

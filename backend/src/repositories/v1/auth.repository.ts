@@ -6,11 +6,8 @@ import { User } from '../../dataBase/entities';
 class AuthRepository {
     constructor(private readonly authRepository: Repository<User>) {}
 
-    // public async createUser(data: any): Promise<any> {
-    //     return this.authRepository.save(data);
-    // }
-    public async createUser(id: number, data: any): Promise<any> {
-        return this.authRepository.update({ id }, data);
+    public async createUser(data: any): Promise<any> {
+        return this.authRepository.save(data);
     }
 }
 
