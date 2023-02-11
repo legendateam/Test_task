@@ -1,13 +1,15 @@
 import { Request, Response } from 'express';
 import os from 'os';
 
+import {convertBytesToMbUtil} from "../../utils";
+
 class HealthController {
     public getFreeMemory(req: Request, res: Response): void {
-
-        const formatMemoryUsage = (data: number) => `${Math.round(data / 1024 / 1024)} MB`;
+        const freeMem = os.freemem();
+        const formattedMemory = convertBytesToMbUtil(freeMem);
 
         res.json({
-            freeMemory: formatMemoryUsage(os.freemem())
+            freeMemory: formattedMemory
         });
     }
 }
