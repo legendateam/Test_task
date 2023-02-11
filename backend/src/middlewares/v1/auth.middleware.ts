@@ -4,7 +4,7 @@ import {IUserDto} from "../../interfaces/dto";
 import {IRequest} from "../../interfaces";
 
 class AuthMiddleware {
-    public CheckUser(req: IRequest, _: Response, next: NextFunction): void {
+    public checkUser(req: IRequest, _: Response, next: NextFunction): void {
         try {
             const { body } = req;
 
