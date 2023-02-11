@@ -5,5 +5,5 @@ import { healthRouter } from './health/health.router';
 
 export const v1Router = Router();
 
-v1Router.use('health', healthRouter);
-v1Router.use('auth', authRouter);
+v1Router.use('/health', healthRouter);
+v1Router.use('/auth', authRouter);

@@ -3,5 +3,5 @@ import { Router } from 'express';
 export const healthRouter = Router();
 
 healthRouter.get('/', (req, res) => {
-    res.json();
+    res.json('hello form server');
 });

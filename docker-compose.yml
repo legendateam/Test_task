@@ -11,6 +11,8 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
+    ports:
+      - "4500:4500"
     command: >
       /wait-for-it.sh db:5432 -- npm run start:dev &&
       npm run migration:run
