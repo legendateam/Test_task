@@ -1,7 +1,7 @@
-import {Response, NextFunction} from "express";
+import { Response, NextFunction } from 'express';
 
-import {IUserDto} from "../../interfaces/dto";
-import {IRequest} from "../../interfaces";
+import { IUserDto } from '../../interfaces/dto';
+import { IRequest } from '../../interfaces';
 
 class AuthMiddleware {
     public checkUser(req: IRequest, _: Response, next: NextFunction): void {

@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 
 import { AppDataSource } from '../../data-source';
 import { User } from '../../dataBase/entities';
-import {IUserDto} from "../../interfaces/dto";
+import { IUserDto } from '../../interfaces/dto';
 
 class AuthRepository {
     constructor(private readonly authRepository: Repository<User>) {}

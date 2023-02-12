@@ -1,7 +1,7 @@
-import { Request } from "express";
+import { Request } from 'express';
 
-import {IUserDto} from "./dto";
+import { IUserDto } from './dto';
 
-export interface IRequest extends Request{
-    user?: IUserDto
+export interface IRequest extends Request {
+    user?: IUserDto;
 }

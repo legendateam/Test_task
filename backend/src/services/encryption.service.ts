@@ -1,36 +1,35 @@
 import crypto from 'crypto';
-import {configs} from "../configs";
-import {encryptAlgorithmsConstant} from "../constants";
+import { configs } from '../configs';
+import { encryptAlgorithmsConstant } from '../constants';
 
 class EncryptionService {
-    constructor(private readonly key = configs.SECRET_KEY) {
-    }
+    constructor(private readonly key = configs.SECRET_KEY) {}
 
-    public encrypter(msg: string, bytes: number, algorithm = encryptAlgorithmsConstant["aes-256-cbc"]): string {
+    public encrypter(msg: string, bytes: number, algorithm = encryptAlgorithmsConstant['aes-256-cbc']): string {
         const iv = this.iv().setIv(bytes);
 
         const encrypter = this.makeEncryptoFunction(algorithm, this.key, iv);
 
         let encryptedMsg = encrypter.update(msg, 'utf8', 'hex');
 
-        encryptedMsg += encrypter.final("hex");
+        encryptedMsg += encrypter.final('hex');
 
         return encryptedMsg;
     }
 
-    public decrypter(encryptedMsg: string, algorithm = encryptAlgorithmsConstant["aes-256-cbc"]): string {
+    public decrypter(encryptedMsg: string, algorithm = encryptAlgorithmsConstant['aes-256-cbc']): string {
         const iv = this.iv().getIv();
 
         const decrypter = this.makeDecrypterFunction(algorithm, this.key, iv);
 
-        let decryptedMsg = decrypter.update(encryptedMsg, "hex", "utf8");
+        let decryptedMsg = decrypter.update(encryptedMsg, 'hex', 'utf8');
 
-        decryptedMsg += decrypter.final("utf8");
+        decryptedMsg += decrypter.final('utf8');
 
         return decryptedMsg;
     }
 
-    private iv(): { getIv: () => string, setIv: (bytes: number) => string } {
+    private iv(): { getIv: () => string; setIv: (bytes: number) => string } {
         let iv = '';
 
         return {
@@ -41,10 +40,10 @@ class EncryptionService {
                 }
                 return iv;
             },
-        }
+        };
     }
 
-    private generateBytesOfRandomData (bytes: number): string {
+    private generateBytesOfRandomData(bytes: number): string {
         return crypto.randomBytes(bytes).toString('hex').slice(0, bytes);
     }
 
