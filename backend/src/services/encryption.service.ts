@@ -39,7 +39,7 @@ class EncryptionService {
                 if (!this.iv().getIv()) {
                     iv = this.generateBytesOfRandomData(bytes);
                 }
-                return this.iv().getIv();
+                return iv;
             },
         }
     }

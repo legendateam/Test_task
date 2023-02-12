@@ -8,7 +8,7 @@ class AuthMiddleware {
         try {
             const { body } = req;
 
-            if (body.password && body.email && body.name) {
+            if (!body.password || !body.email || !body.name) {
                 throw new Error('data invalid');
             }
 
