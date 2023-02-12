@@ -1,7 +1,10 @@
-import { Response, NextFunction } from 'express';
+import { NextFunction, Response } from 'express';
 
 import { IUserDto } from '../../interfaces/dto';
 import { IRequest } from '../../interfaces';
+import { ErrorCustom } from '../../error';
+import { HttpStatusEnum } from '../../enums';
+import { errorConstant } from '../../constants';
 
 class AuthMiddleware {
     public checkUser(req: IRequest, _: Response, next: NextFunction): void {
@@ -9,14 +12,15 @@ class AuthMiddleware {
             const { body } = req;
 
             if (!body.password || !body.email || !body.name) {
-                throw new Error('data invalid');
+                next(new ErrorCustom(errorConstant.badRequest, HttpStatusEnum.BAD_REQUEST));
+                return;
             }
 
             req.user = body as IUserDto;
 
             next();
         } catch (e) {
-            console.log(e);
+            next(e);
         }
     }
 }

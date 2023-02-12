@@ -1,4 +1,3 @@
-// @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import argon2 from 'argon2';
 
